@@ -1,0 +1,10 @@
+# 脚本类文件必须保持 LF：Windows 检出（autocrlf）若转成 CRLF，
+# 设备上 shebang(#!/usr/bin/python3\r) 与 bash 都会解析失败。
+*.sh      text eol=lf
+*.command text eol=lf
+*.py      text eol=lf
+
+# 反过来，只在 Windows 宿主机执行的脚本显式用 CRLF，不依赖各人 autocrlf 碰巧正确：
+# cmd.exe 对 LF-only 批处理有解析坑（标签/goto 失效）；PowerShell 两种都行，按 Windows 惯例 CRLF。
+*.cmd     text eol=crlf
+*.ps1     text eol=crlf
